@@ -3,4 +3,5 @@ project(beginner)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(beginner complexity/maximum_profit.cpp)
+add_executable(MaximumProfit complexity/MaximumProfit.cpp)
+add_executable(InsertionSort sorting/InsertionSort.cpp)
