@@ -3,4 +3,4 @@ project(beginner)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(beginner main.cpp)
+add_executable(beginner complexity/maximum_profit.cpp)
