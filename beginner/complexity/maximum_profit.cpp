@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void drive()
+void drive_offline()
 {
     int n;
     cin >> n;
@@ -27,10 +27,32 @@ void drive()
     cout << max_val << endl;
 }
 
+void drive_online()
+{
+    int n;
+    cin >> n;
+    int curr_val;
+    int max_val = -1000000000;
+    int min_val = -max_val;
+    for (int i=0; i<n; ++i) {
+        cin >> curr_val;
+        if (i == 0) {
+            min_val = curr_val;
+        } else {
+            max_val = max(max_val, curr_val-min_val);
+            min_val = min(min_val, curr_val);
+        }
+    }
+    cout << max_val << endl;
+}
+
 int main()
 {
     clock_t start = clock();
-    drive();
-    cout << "costs:" << ((clock()-start)*1000/(double)CLOCKS_PER_SEC) << "ms";
+    drive_offline();
+    printf("costs:%.3fms\n", ((clock()-start)*1000)/(double)CLOCKS_PER_SEC);
+    start = clock();
+    drive_online();
+    printf("costs:%.3fms\n", ((clock()-start)*1000)/(double)CLOCKS_PER_SEC);
     return 0;
 }
